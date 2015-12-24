@@ -1,0 +1,20 @@
+#!/bin/bash
+DATE=$(date +%H:%M:%S)
+ROOT=/home/www
+LOG="$ROOT/log/restart-app.log"
+PID=""
+
+sites="
+rv.pointlook.com
+"
+
+echo $DATE > $LOG
+
+
+for dirs in $sites; do
+  app="$ROOT/$dirs"
+  PID=$(ps -ef |grep $app | grep -v grep | awk '{ print $2 }')
+	echo "restarting $PID ..." >> $LOG
+	for pid in $PID; do kill -9 $pid; done
+	( cd $app; echo "runme $app"; ./runme ) >> $LOG  &
+done

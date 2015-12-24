@@ -1,0 +1,15 @@
+#!/bin/bash
+DATE=`date`
+ROOT=/home/www
+LOG="$ROOT/log/run-forever.log"
+PID=""
+
+sites="
+"
+
+echo "Starting forever check..." > $LOG
+for dirs in $sites; do
+  app="$ROOT/$dirs"
+  PID=$(ps -ef |grep $app | grep meteor | awk '{ print $2 }')
+  ( (echo "checking $app...") && [ "$PID" == "" ] && [ -d "$app" ] && ( cd $app; echo "runme $app"; ./runme )) >> $LOG  &
+done

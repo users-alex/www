@@ -1,0 +1,1 @@
+* * * * *	[ -x /home/www/bin/cronjob ] && ( /home/www/bin/cronjob ) 2>&1 > /home/www/log/cronjob.log  &
