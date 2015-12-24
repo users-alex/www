@@ -1,0 +1,11 @@
+#!/bin/bash
+
+DATE=$(date +%s)
+HOST=github.com
+OUT=/home/www/log/ping-github-good.log
+
+[ -f $OUT ] && /bin/rm $OUT
+
+RESULT=$(ping -W 1 -c 1 $HOST |grep '0% packet loss')
+ 
+[ ! -z "$RESULT" ] && echo $DATE > $OUT

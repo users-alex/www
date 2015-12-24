@@ -1,10 +1,9 @@
 #!/bin/sh
 
 DATE=$(date +%H:%M:%S)
-TIMER=10
+HOME=/home/www
+MESSAGE="Unable to reach github"
 
-while [ true ]
-do
-    sh /home/www/bin/runall
-    sleep $TIMER
-done
+sh $HOME/bin/ping-github
+[ -f $HOME/log/ping-github-good.log ] && MESSAGE="github reachable" &&  sh $HOME/bin/runall
+echo $MESSAGE
