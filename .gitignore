@@ -1,7 +1,9 @@
-.bash_env
 .bash_history
-.selected_editor
+.forever
+.npm
 .ssh
+iotupdates
+log
+node_modules
 tmp
 work
-iotupdates
