@@ -5,6 +5,7 @@ LOG="$ROOT/log/run-forever.log"
 PID=""
 
 sites="
+iotupdates
 "
 
 echo "Starting forever check..." > $LOG

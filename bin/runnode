@@ -1,0 +1,19 @@
+#!/bin/bash
+
+[ -f ~/.profile ] && . ~/.bashrc
+
+DATE=`date`
+ROOT=/home/www
+LOG="$ROOT/log/run-node.log"
+PID=""
+
+sites="
+iotupdates
+"
+
+echo "$DATE : Starting run node check..." > $LOG
+for dirs in $sites; do
+  app="$ROOT/$dirs"
+  PID=$(ps |grep $app | grep -v grep |  grep node | awk '{ print $1 }')
+  (echo "$DATE : checking $app...") && [ "$PID" == "" ] && [ -d "$app" ] && ( cd $app; echo "runme $app"; ./runme ) >> $LOG  &
+done

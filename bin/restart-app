@@ -5,7 +5,7 @@ LOG="$ROOT/log/restart-app.log"
 PID=""
 
 sites="
-rv.pointlook.com
+iotupdates
 "
 
 echo $DATE > $LOG
