@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ARG=$1
+
+ps | grep $ARG | grep -v grep | grep -v killall | awk '{ print $1 }' | xargs kill -9 

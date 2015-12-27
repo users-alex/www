@@ -203,3 +203,8 @@ error: Script restart attempt #1
 1451194354 '{"result":"♡"}'
 1451194954 '{"result":"♡"}'
 1451195554 '{"result":"♡"}'
+1451196154 '{"result":"♡"}'
+error: Forever detected script was killed by signal: SIGKILL
+error: Script restart attempt #2
+error: Forever detected script was killed by signal: SIGKILL
+error: Script restart attempt #3
