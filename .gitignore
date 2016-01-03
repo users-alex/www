@@ -2,8 +2,8 @@
 .forever
 .npm
 .ssh
-iotupdates
 log
 node_modules
 tmp
 work
+iotupdates/*
